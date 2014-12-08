@@ -1,0 +1,70 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--)
+    {
+
+      int x,y,a,m,n;
+
+      cin>>x>>y;
+      m=abs(x);
+      n=abs(y);
+      a=abs(m-n);
+
+      if(m!=0&&n!=0)
+	{
+	  if (m<=n)
+	    {
+	      if (a%2==0)
+		{
+		  cout<<2*n<<endl;
+		}
+	      else
+		cout<<2*n-1<<endl;
+	    }
+	  else
+	    {
+	      if ((a+1)%2==0)
+		{
+		  cout<<2*m+1<<endl;
+		}
+	      else
+		cout<<2*m<<endl;
+	    }
+
+	}
+      else
+	{
+	  if(m==0)
+	    {
+	      if (n%2!=0)
+		{
+		  cout<<2*n-1<<endl;
+		}
+	      else
+		cout<<2*n<<endl;
+	    }
+	  else{
+	    if (m%2!=0)
+	      {
+		cout<<2*m+1<<endl;
+	      }
+	    else
+	      cout<<2*m<<endl;
+	  }
+	}
+
+
+
+
+
+
+
+
+    }}

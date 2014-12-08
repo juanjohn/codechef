@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+  int t,maxbal,bal,i;
+  char arr[100000];
+  scanf("%d",&t);
+  while(t--){
+    maxbal=0;
+    bal=0;
+    scanf("%s",arr);
+    for(i=0;arr[i]!='\0';i++){
+      if(arr[i]=='('){
+	bal++;
+	if(bal>maxbal)
+	  maxbal=bal;
+      }
+      else
+	bal--;
+    }
+    for(i=0;i<maxbal;i++){
+      putchar('(');
+    }
+    for(i=0;i<maxbal;i++)
+      putchar(')');
+    printf("\n");
+  }
+  return 0;
+}

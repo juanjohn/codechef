@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+  int t,n,i;
+  scanf("%d",&t);
+  while(t--){
+    scanf("%d",&n);
+    int arr[n];
+    for(i=0;i<n;i++){
+      scanf("%d",&arr[i]);
+    }
+    printf("%d\n",(n*(n-1)/2));
+  }
+  return 0;
+}

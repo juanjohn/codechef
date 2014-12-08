@@ -1,0 +1,23 @@
+#include <iostream>
+#include <stdio.h>
+long long currentmax=0,lookup[];
+long long maxexchange(long long n){
+  if(n==0)
+    return 0;
+  else{
+    if(n>currentmax){
+      for(int i=currentmax;i<=n;i++){
+	
+      }
+    }
+  }
+  return ;
+}
+
+int main(){
+  long long n;int t=0;
+  while(scanf("%lld",&n)){
+    printf("%lld",maxexchange(n));
+  }
+  return 0;
+}

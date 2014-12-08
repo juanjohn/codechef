@@ -1,0 +1,42 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+
+using namespace std;
+
+int main(){
+  int n,k,p,a,b,temp,pre,j;
+  int cnt=0;
+  cin>>n>>k>>p;
+  long long arr[n];
+  int x[1000000000LL];
+  //int *x;
+  //x=(int*)calloc(1000000000,sizeof(int));
+  //int x[1000000];
+  for(long long i=0;i<n;i++){
+    cin>>arr[i];
+    x[arr[i]]=1;
+  }
+  for(long long i=0;i<p;i++){
+    cin>>a>>b;//scanf("%f%f",&a,&b);
+    long long start=arr[a],end=arr[b];
+    if(end<start){
+      start=arr[b-1];
+      end=arr[a-1];
+    }
+    pre=start;
+    for(j=start;j<=end;j++){
+      if(x[j]==1){
+	if((j-pre)>k){
+	  cout<<"No"<<endl;
+	  break;
+	}
+	else
+	  pre=j;
+      }
+    }
+    if(j>end)
+      cout<<"Yes"<<endl;
+  }
+  return 0;
+}

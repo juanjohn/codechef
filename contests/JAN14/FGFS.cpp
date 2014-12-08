@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+
+struct node{
+  long long strt;
+  long long fini;
+  long long pref;
+};
+
+void quicksort(node *x[],long long first,long long last){
+  long long pivot,j,i;
+  node *temp;
+
+  if(first<last){
+    pivot=first;
+    i=first;
+    j=last;
+
+    while(i<j){
+      while(x[i]->fini<=x[pivot]->fini&&i<last)
+	i++;
+      while(x[j]->fini>x[pivot]->fini)
+	j--;
+      if(i<j){
+	temp=x[i];
+	x[i]=x[j];
+	x[j]=temp;
+      }
+    }
+
+    temp=x[pivot];
+    x[pivot]=x[j];
+    x[j]=temp;
+
+    quicksort(x,first,j-1);
+    quicksort(x,j+1,last);
+    
+  }
+}
+  
+int main(){
+  int t;
+  long long n,k,s,f,p,i,cnt,a,b,c;
+  scanf("%d",&t);
+  while(t--){
+    cnt=0;
+    scanf("%lld%lld",&n,&k);
+    node *arr[n];
+    for(i=0;i<n;i++){
+      node *ptr=new node;
+      scanf("%lld%lld%lld",&a,&b,&c);
+      ptr->strt=a;
+      ptr->fini=b;
+      ptr->pref=c-1;
+      arr[i]=ptr;
+    }
+    quicksort(arr,0,n-1);
+    /*    for(i=0;i<n;i++)
+	  printf("%lld %lld %lld\n",arr[i]->strt,arr[i]->fini,arr[i]->pref);*/
+    long long tables[k];
+    for(i=0;i<k;i++)
+      tables[i]=0;
+    for(i=0;i<n;i++){
+      if(arr[i]->strt>=tables[arr[i]->pref]){
+	cnt++;
+	tables[arr[i]->pref]=arr[i]->fini;
+      }
+    }
+    printf("%lld\n",cnt);
+  }
+  return 0;
+}

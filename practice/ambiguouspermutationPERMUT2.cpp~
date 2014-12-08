@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main(){
+  while(true){
+    int n;int i;
+    scanf("%d",&n);
+    if(n==0)
+      break;
+    else{
+      int arr[n];
+      int rarr[n];
+      for(i=0;i<n;i++){
+	scanf("%d",arr+i);
+	rarr[arr[i]-1]=i+1;
+      }
+      for(i=0;i<n;i++){
+	if(arr[i]==rarr[i])
+	  continue;
+	else{
+	  i++;
+	  break;
+	}
+      }
+      if(i==n)
+	printf("ambiguous\n");
+      else
+	printf("not ambiguous\n");
+    }
+  }
+  return 0;
+}

@@ -1,0 +1,11 @@
+#include <iostream>
+#include <stdio.h>
+
+int main(){
+  long long arr[10],n;int t=0;
+  while(scanf("%lld",&n)){
+    t++;
+  };
+  printf("dsd\n");
+  return 0;
+}

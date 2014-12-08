@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+void trim(long long *n){
+  while((*n)%10==0)
+    *n/=10;
+  return;
+}
+
+void reverse(long long *n){
+  long long temp=0;
+  while(*n!=0){
+    temp=temp*10+*n%10;
+    *n/=10;
+  }
+  *n=temp;
+}
+
+int main(){
+  int n;
+  scanf("%d",&n);
+  while(n--){
+    long long a,b;
+    scanf("%lld%lld",&a,&b);
+    trim(&a);
+    trim(&b);
+    reverse(&a);
+    reverse(&b);
+    long long sum=a+b;
+    reverse(&sum);
+    trim(&sum);
+    printf("%lld\n",sum);
+  }
+  return 0;
+}

@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+  int t,a,b,k;
+  scanf("%d",&t);
+  while(t--){
+    scanf("%d",&k);
+    a=103993;
+    b=33102;
+    printf("%d",a/b);
+    if(k>0)
+      printf(".");
+    while(k--){
+      a=a%b;
+      a*=10;
+      printf("%d",a/b);
+    }
+    printf("\n");
+  }
+  return 0;
+}

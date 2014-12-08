@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+  long long t,n,i,len;
+  char lkp[127];
+  char c,p;
+  char str[1000009];
+  int strt,end;
+  scanf("%lld",&t);
+  while(t--){
+    strt=0;
+    scanf("%lld",&n);
+    for(i=0;i<127;i++)
+      lkp[i]=' ';
+    for(i=0;i<n;i++){
+      cin>>c>>p;
+      lkp[c]=p;
+    }
+    scanf("%s",str);
+    for(i=0;str[i]!='\0';i++){
+      if(lkp[str[i]]!=' ')
+	str[i]=lkp[str[i]];
+    }
+    end=i;
+
+    while(true){
+      if(str[strt]!='0')
+	break;
+      strt++;
+    }    
+    while(end--){
+      if(str[end]!='0')
+	break;
+    }
+    if(str[end]=='.')
+      end--;
+    if(strt>end)
+      printf("0");
+    else
+      for(i=strt;i<=end;i++)
+	printf("%c",str[i]);
+    printf("\n");
+  }
+  return 0;
+}
